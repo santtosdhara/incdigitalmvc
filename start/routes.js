@@ -17,3 +17,8 @@
 const Route = use('Route')
 
 Route.on('/').render('welcome')
+Route.get('student', 'StudentController.show').middleware(['auth'])
+Route.get('login', ({view}) => view.render('student.login'))
+Route.get('logout', 'StudentController.logout').middleware(['auth'])
+Route.post('login', 'StudentController.login')
+Route.post('student', 'StudentController.store')
