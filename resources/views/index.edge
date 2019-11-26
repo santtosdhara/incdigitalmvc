@@ -16,44 +16,45 @@
     <nav class="navbar navbar-light bg-info">
         <a class="navbar-brand" href="{{route('/')}}">Inclusão Digital</a>
         @loggedIn
-        <a href="/logout" class="btn btn-info">Sair</a>
+        <a href="{{route('logout')}}" class="btn btn-info">Sair</a>
         @else
         <a href="/login" class="btn btn-info">Entrar</a>
         @endloggedIn
     </nav>
 
-    <div class="row">
+
+    <div class="row d-flex">
         <div class="col-sm-4 mt-5 d-flex justify-content-center">
             <div class="card w-75">
-                <img src="images/logo1.png"" class=" card-img-top" alt="...">
+                <img src="{{ assetsUrl('images/logo1.png') }}" class=" card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Atividades WhatsApp</h5>
                     <p class="card-text">Colocando em pratica os as funcionalidades do
                         WhatsApp!
                     </p>
-                    <a href="whatsapp.html" class="btn btn-info w-100">Começar</a>
+                    <a href="/whatsapp" class="btn btn-info w-100">Começar</a>
                 </div>
             </div>
         </div>
         <div class="col-sm-4 mt-5 d-flex justify-content-center">
             <div class="card w-75">
-                <img src="images/logo2.jpg"" class=" card-img-top" alt="...">
+                <img src="{{ assetsUrl('images/logo2.jpg') }}" class=" card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Atividades Instagram</h5>
                     <p class="card-text">Colocando em pratica os as funcionalidades do
                         Instagram!</p>
-                    <a href="instagram.html" class="btn btn-info w-100">Começar</a>
+                    <a href="/instagram" class="btn btn-info w-100">Começar</a>
                 </div>
             </div>
         </div>
         <div class="col-sm-4 mt-5 d-flex justify-content-center">
             <div class="card w-75">
-                <img src="images/logo3.jpg" class="card-img-top" alt="...">
+                <img src="{{ assetsUrl('images/logo3.jpg') }}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">Atividades Facebook</h5>
                     <p class="card-text">Colocando em pratica os as funcionalidades do
                         Facebook!</p>
-                    <a href="#" class="btn btn-info w-100">Começar</a>
+                    <a href="/facebook" class="btn btn-info w-100">Começar</a>
                 </div>
             </div>
         </div>
