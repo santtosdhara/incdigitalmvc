@@ -32,6 +32,7 @@ class StudentController {
    * @param {View} ctx.view
    */
   async create({ request, response, view }) {
+
   }
 
   /**
@@ -45,7 +46,7 @@ class StudentController {
   async store({ request, response }) {
     const studentParams = request.only(['cpf', 'name', 'email', 'password', 'phone', 'birthdate'])
     await Student.create({ ...studentParams })
-    return "Estudante criado!"
+    return "Estudante registrado!"
   }
 
   /**
@@ -95,24 +96,25 @@ class StudentController {
   async destroy({ params, request, response }) {
   }
 
-  async login({ auth, request, response, session }) {
-    const { email, password } = request.all()
+  async login({ auth, request, response, session, view }) {
+    const { email, password } = request.all()    
 
     try {
       console.log(email, password)
       await auth.attempt(email, password)
     } catch (e) {
       console.log(e)
-      return response.redirect('login')
+      return view.render('student.login', {error: "E-Mail ou Senha incorretos!"})
     }
 
-    response.redirect('student')
+    return response.redirect('student')
   }
 
-  async logout({ auth, request, response, session }) {
+  async logout({ auth, request, response, session, view }) {
     await auth.logout()
-    return 'Deslogado!'
-    // response.redirect()
+    return view.render('student.login', {message: "Estudante deslogado com sucesso!"})
+    // return 'Deslogado!'
+    // response.redirect('login', {message: "Estudante deslogado com sucesso!"})
   }
 }
 

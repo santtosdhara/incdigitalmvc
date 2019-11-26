@@ -15,13 +15,13 @@
 
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
-Route.post('/users', 'UserController.create')
 
-Route.resource('students', 'StudentController')
-    
-Route.on('/').render('welcome')
-Route.get('student', 'StudentController.show').middleware(['auth'])
-Route.get('login', ({view}) => view.render('student.login'))
-Route.get('logout', 'StudentController.logout').middleware(['auth'])
+Route.on('/').render('index')
+Route.get('student', 'StudentController.show').middleware(['authH'])
+Route.get('login/:error?', ({ view, params }) => { console.log(params); return view.render('student.login', { error: decodeURI(params.error)  }) })
+Route.get('logout', 'StudentController.logout').middleware(['authH'])
+Route.get('whatsapp', 'StudentController.logout').middleware(['authH'])
+Route.get('instagram', 'StudentController.logout').middleware(['authH'])
+Route.get('facebook', 'StudentController.logout').middleware(['authH'])
 Route.post('login', 'StudentController.login')
 Route.post('student', 'StudentController.store')
