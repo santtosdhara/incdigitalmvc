@@ -1,0 +1,43 @@
+////WhatsApp: MODULO 1//////
+
+1)Como criar uma nova conversa
+    a) Vou em 'Configurações' e seleciono o contato.
+    b)Clico no balão verde no canto inferior da tela e seleciono um contato.
+    c)Vou na aba 'Chamadas' e procuro a pessoa que quero conversar.
+    d)Vou na aba 'Status' e vejo quem eu quero conversar.
+
+2) Como excluir uma conversa?
+    a)Seguro o dedo por alguns segundos em cima da conversa e seleciono os três pontinhos.
+    b)Seguro o dedo por alguns segundos em cima da conversa e seleciono o ícone da caixa com uma seta para baixo.
+    c)Seguro o dedo por alguns segundos em cima da conversa e seleciono o ícone do Alfinete.
+    d)Seguro o dedo por alguns segundos em cima da conversa e seleciono o ícone do lixo.
+
+2) Como faz para mandar uma foto? Dentro da conversa eu seleciono o clips (na barra de digitação) e:
+    a) abro minha galeria ou tiro foto com minha câmera.
+    b)aperto no botão 'Contato.
+    c)aperto no botão 'Localização.
+    d)aperto no botão 'Documento.
+    
+    --------------------------------------------------------
+
+    ////WhatsApp MODULO 2//////
+
+
+1)Para enviar a minha localização, eu preciso:
+    a)Ir em 'Configurações; e pressionar enviar.
+    b) Dentro de uma conversa, eu clico no clips (que fica na área de digitação do texto) e em seguida seleciono 'Localização'.
+    c)Vou na aba 'Chamadas' e procuro a pessoa que quero compartilhar minha localização.
+    d)Devo apertar no botão com o símbolo de um telefone, dentro da conversa.
+
+2) Como enviar um áudio?
+    a)Dentro da conversa eu seleciono os 3 pontinhos no canto superior direito e mando o áudio.
+    b)Na página inicial do app, eu seleciono a lupa, que fica no canto superior direito e mando o áudio.
+    c)Dentro da conversa, ao lado da área de digitação da mensagem, eu pressiono o microfone verde e envio o áudio.
+    d)Apenas digo o que quero enviar e automaticamente ele envia o áudio.
+
+3)Como conectar o whatsapp web?
+    a)Na página principal, eu devo im em 'Conversas' e em seguida selecionar 'Whatsapp Web'e conectar com meu computador.
+    b)Na página principal, eu devo ir nos três pontinhos (canto superior direito) e em seguida selecionar 'Whatsapp Web' e conectar com meu computador.
+    c)"Vou na aba 'Status' e seleciono Whatsapp Web.
+    d)Vou em 'Configurações'e em seguida seleciono Whatsapp Web.
+
