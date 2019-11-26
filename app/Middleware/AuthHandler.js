@@ -14,7 +14,7 @@ class AuthHandler {
     try {
       await auth.check()
     } catch (error) {
-      return response.route('login/Voc%C3%AA%20precisa%20estar%20logado')
+      return response.route('notAuth')
     }
 
     await next()
