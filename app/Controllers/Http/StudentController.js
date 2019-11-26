@@ -1,5 +1,7 @@
 'use strict'
 
+const Student = use('App/Models/Student')
+
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
@@ -17,7 +19,7 @@ class StudentController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async index ({ request, response, view }) {
+  async index({ request, response, view }) {
   }
 
   /**
@@ -29,7 +31,7 @@ class StudentController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async create ({ request, response, view }) {
+  async create({ request, response, view }) {
   }
 
   /**
@@ -40,7 +42,10 @@ class StudentController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async store ({ request, response }) {
+  async store({ request, response }) {
+    const studentParams = request.only(['cpf', 'name', 'email', 'password', 'phone', 'birthdate'])
+    await Student.create({ ...studentParams })
+    return "Estudante criado!"
   }
 
   /**
@@ -52,7 +57,8 @@ class StudentController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async show ({ params, request, response, view }) {
+  async show({ params, request, response, view }) {
+    return view.render("student.student");
   }
 
   /**
@@ -64,7 +70,7 @@ class StudentController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async edit ({ params, request, response, view }) {
+  async edit({ params, request, response, view }) {
   }
 
   /**
@@ -75,7 +81,7 @@ class StudentController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async update ({ params, request, response }) {
+  async update({ params, request, response }) {
   }
 
   /**
@@ -86,7 +92,27 @@ class StudentController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async destroy ({ params, request, response }) {
+  async destroy({ params, request, response }) {
+  }
+
+  async login({ auth, request, response, session }) {
+    const { email, password } = request.all()
+
+    try {
+      console.log(email, password)
+      await auth.attempt(email, password)
+    } catch (e) {
+      console.log(e)
+      return response.redirect('login')
+    }
+
+    response.redirect('student')
+  }
+
+  async logout({ auth, request, response, session }) {
+    await auth.logout()
+    return 'Deslogado!'
+    // response.redirect()
   }
 }
 

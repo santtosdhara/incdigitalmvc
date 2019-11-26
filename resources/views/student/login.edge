@@ -1,0 +1,9 @@
+<h1>Login form</h1>
+
+<form method='post' action='/login'>
+
+	{{ csrfField() }}	
+	<input type='email' placeholder='Email' name='email'>
+	<input type='password' placeholder='Password' name='password'>
+	<button type='submit'>Login</button>
+</form>
