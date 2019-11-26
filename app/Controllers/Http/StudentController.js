@@ -43,10 +43,10 @@ class StudentController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async store({ request, response }) {
+  async store({ request, response, view }) {
     const studentParams = request.only(['cpf', 'name', 'email', 'password', 'phone', 'birthdate'])
     await Student.create({ ...studentParams })
-    return "Estudante registrado!"
+    return view.render("student.login", {message: "Estudante registrado com sucesso!"})
   }
 
   /**

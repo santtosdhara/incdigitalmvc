@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <script src="scripts/app.js" async></script> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Inclusão Digital</title>
+    <!-- <meta URL='incdigital-master/whatsapp.php'> -->
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-info">
+        <a class="navbar-brand" href="{{route('/')}}">Inclusão Digital</a>
+        @loggedIn
+        <a href="{{route('logout')}}" class="btn btn-info">Sair</a>
+        @else
+        <a href="{{route('login')}}" class="btn btn-info">Entrar</a>
+        @endloggedIn
+    </nav>
+
+    @if(error)
+    <div class="alert alert-danger" role="alert">
+        {{error}}
+    </div>
+    @endif
+
+    @if(message)
+    <div class="alert alert-info" role="alert">
+        {{message}}
+    </div>
+    @endif
+
+    <div class="row mt-3">
+        <div class="col d-flex justify-content-center">
+            <form method='post' action='/signup'>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail">Email</label>
+                        <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword">Senha</label>
+                        <input type="password" name="password" class="form-control" id="inputPassword"
+                            placeholder="Senha">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputCpf">CPF</label>
+                        <input type="number" name="cpf" class="form-control" id="inputCpf" placeholder="CPF">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputBirthDate">Data Nascimento</label>
+                        <input type="date" name="birthdate" class="form-control" id="inputBirthDate" placeholder="Data de nascimento">
+                    </div>
+                </div>
+                <div class="form-row">                    
+                    <div class="form-group col-md-6">
+                        <label for="inputName">Nome</label>
+                        <input type="text" name="name" class="form-control" id="inputName" placeholder="Nome">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputPhone">Telefone</label>
+                        <input type="number" name="phone" class="form-control" id="inputPhone" placeholder="Telefone">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
