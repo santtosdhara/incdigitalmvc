@@ -1,6 +1,7 @@
 'use strict'
 
 const Student = use('App/Models/Student')
+const { validate } = use('Validator')
 
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
@@ -43,10 +44,33 @@ class StudentController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async store({ request, response, view }) {
+  async store({ request, response, view, session }) {
     const studentParams = request.only(['cpf', 'name', 'email', 'password', 'phone', 'birthdate'])
+
+    const rules = {
+      email: 'required|email|unique:students,email',
+      password: 'required',
+      cpf: 'required|unique:students,cpf',
+      name: 'required',
+      password: 'required',
+      birthdate: 'required|date'
+    }
+
+    const validation = await validate(studentParams, rules)
+
+    if (validation.fails()) {
+      session
+        .withErrors(validation.messages())
+        .flashExcept(['password'])
+
+      return response.redirect('back')
+    }
+
+    const studentExists = await Student.findBy('email', studentParams.email)
+    if (studentExists) return view.render("student.signup", { error: "Estudante já cadastrado!" })
+
     await Student.create({ ...studentParams })
-    return view.render("student.login", {message: "Estudante registrado com sucesso!"})
+    return view.render("student.login", { message: "Estudante registrado com sucesso!" })
   }
 
   /**
@@ -97,14 +121,14 @@ class StudentController {
   }
 
   async login({ auth, request, response, session, view }) {
-    const { email, password } = request.all()    
+    const { email, password } = request.all()
 
     try {
       console.log(email, password)
       await auth.attempt(email, password)
     } catch (e) {
       console.log(e)
-      return view.render('student.login', {error: "E-Mail ou Senha incorretos!"})
+      return view.render('student.login', { error: "E-Mail ou Senha incorretos!" })
     }
 
     return response.redirect('student')
@@ -112,7 +136,7 @@ class StudentController {
 
   async logout({ auth, request, response, session, view }) {
     await auth.logout()
-    return view.render('student.login', {message: "Estudante deslogado com sucesso!"})
+    return view.render('student.login', { message: "Estudante deslogado com sucesso!" })
     // return 'Deslogado!'
     // response.redirect('login', {message: "Estudante deslogado com sucesso!"})
   }

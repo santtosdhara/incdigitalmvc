@@ -18,7 +18,10 @@
         @loggedIn
         <a href="{{route('logout')}}" class="btn btn-info">Sair</a>
         @else
-        <a href="/login" class="btn btn-info">Entrar</a>
+        <div>
+            <a href="/login" class="btn btn-info mr-2">Entrar</a>
+            <a href="/signup" class="btn btn-info">Cadastrar</a>
+        </div>
         @endloggedIn
     </nav>
 

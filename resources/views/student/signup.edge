@@ -39,33 +39,45 @@
             <form method='post' action='/signup'>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="inputEmail">Email</label>
-                        <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email">
+                        <label for="inputEmail">Email:</label>
+                        <input type="email" name="email" class="form-control {{ elIf('is-invalid', getErrorFor('email'), hasErrorFor('email')) }}" id="inputEmail" placeholder="Email"
+                            value="{{ old('email', '') }}">
+                        {{ elIf('<h6 class="text-danger">$self</h6>', getErrorFor('email'), hasErrorFor('email')) }}
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="inputPassword">Senha</label>
-                        <input type="password" name="password" class="form-control" id="inputPassword"
+                        <label for="inputPassword">Senha:</label>
+                        <input type="password" name="password" class="form-control {{ elIf('is-invalid', getErrorFor('password'), hasErrorFor('password')) }}" id="inputPassword"
                             placeholder="Senha">
+                        {{ elIf('<h6 class="text-danger">$self</h6>', getErrorFor('password'), hasErrorFor('password')) }}
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="inputCpf">CPF</label>
-                        <input type="number" name="cpf" class="form-control" id="inputCpf" placeholder="CPF">
+                        <label for="inputCpf">CPF:</label>
+                        <input type="text" name="cpf"
+                            class="form-control {{ elIf('is-invalid', getErrorFor('cpf'), hasErrorFor('cpf')) }}"
+                            id="inputCpf" placeholder="CPF" value="{{ old('cpf', '') }}">
+                        {{ elIf('<h6 class="text-danger">$self</h6>', getErrorFor('cpf'), hasErrorFor('cpf')) }}
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="inputBirthDate">Data Nascimento</label>
-                        <input type="date" name="birthdate" class="form-control" id="inputBirthDate" placeholder="Data de nascimento">
+                        <label for="inputBirthDate">Data Nascimento:</label>
+                        <input type="date" name="birthdate" class="form-control {{ elIf('is-invalid', getErrorFor('birthdate'), hasErrorFor('birthdate')) }}" id="inputBirthDate"
+                            placeholder="Data de nascimento" value="{{ old('birthdate', '') }}">
+                            {{ elIf('<h6 class="text-danger">$self</h6>', getErrorFor('birthdate'), hasErrorFor('birthdate')) }}
                     </div>
                 </div>
-                <div class="form-row">                    
+                <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="inputName">Nome</label>
-                        <input type="text" name="name" class="form-control" id="inputName" placeholder="Nome">
+                        <label for="inputName">Nome:</label>
+                        <input type="text" name="name" class="form-control {{ elIf('is-invalid', getErrorFor('name'), hasErrorFor('name')) }}" id="inputName" placeholder="Nome"
+                            value="{{ old('name', '') }}">
+                            {{ elIf('<h6 class="text-danger">$self</h6>', getErrorFor('name'), hasErrorFor('name')) }}
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="inputPhone">Telefone</label>
-                        <input type="number" name="phone" class="form-control" id="inputPhone" placeholder="Telefone">
+                        <label for="inputPhone">Telefone:</label>
+                        <input type="text" name="phone" class="form-control {{ elIf('is-invalid', getErrorFor('phone'), hasErrorFor('phone')) }}" id="inputPhone" placeholder="Telefone"
+                            value="{{ old('phone', '') }}">
+                            {{ elIf('<h6 class="text-danger">$self</h6>', getErrorFor('phone'), hasErrorFor('phone')) }}
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Cadastrar</button>
