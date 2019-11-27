@@ -1,0 +1,11 @@
+<nav class="navbar navbar-light bg-info">
+    <a class="navbar-brand" href="{{route('/')}}">Inclusão Digital</a>
+    @loggedIn
+    <a href="{{route('/logout')}}" class="btn btn-info">Sair</a>
+    @else
+    <div>
+        <a href="/login" class="btn btn-info mr-2">Entrar</a>
+        <a href="/signup" class="btn btn-info">Cadastrar</a>
+    </div>
+    @endloggedIn
+</nav>

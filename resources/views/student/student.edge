@@ -1,63 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+@layout('template')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- <script src="scripts/app.js" async></script> -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Inclusão Digital</title>
-    <!-- <meta URL='incdigital-master/whatsapp.php'> -->
-</head>
-
-<body>
-    <nav class="navbar navbar-light bg-info">
-        <a class="navbar-brand" href="{{route('/')}}">Inclusão Digital</a>
-        @loggedIn
-        <a href="/logout" class="btn btn-info">Sair</a>
-        @else
-        <a href="/login" class="btn btn-info">Entrar</a>
-        @endloggedIn
-    </nav>
-
-    <div class="row">
-        <div class="col-sm-4 mt-5 d-flex justify-content-center">
-            <div class="card w-75">
-                <img src="images/logo1.png"" class=" card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Atividades WhatsApp</h5>
-                    <p class="card-text">Colocando em pratica os as funcionalidades do
-                        WhatsApp!
-                    </p>
-                    <a href="whatsapp.html" class="btn btn-info w-100">Começar</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4 mt-5 d-flex justify-content-center">
-            <div class="card w-75">
-                <img src="images/logo2.jpg"" class=" card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Atividades Instagram</h5>
-                    <p class="card-text">Colocando em pratica os as funcionalidades do
-                        Instagram!</p>
-                    <a href="instagram.html" class="btn btn-info w-100">Começar</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4 mt-5 d-flex justify-content-center">
-            <div class="card w-75">
-                <img src="images/logo3.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Atividades Facebook</h5>
-                    <p class="card-text">Colocando em pratica os as funcionalidades do
-                        Facebook!</p>
-                    <a href="#" class="btn btn-info w-100">Começar</a>
-                </div>
-            </div>
-        </div>
+@section('main')
+<div class="row mt-3">
+    <div class="col d-flex justify-content-center">
+        <h3>Seja Bem-Vindo {{auth.user.name}}</h3>
     </div>
-</body>
-
-</html>
+</div>
+@endsection
